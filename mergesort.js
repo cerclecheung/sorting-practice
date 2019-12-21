@@ -37,16 +37,11 @@ function merge(firstArr, secondArr) {
 }
 
 function mergeSort(arr) {
-  if (arr.length === 1) {
-    //if original array is split down to ashes, then we wanna return the array and call merge on it
-    //if not, we wanna call split recursively on the array
+  debugger;
+  if (arr.length < 2) {
+    return arr;
   }
-  const result = split(arr);
-
-  if (result.length !== 1) {
-    return merge(split(result[0], result[1]));
-  } else {
-    return result;
-  }
-  // arr.map(ele => {if(ele.length<)split(ele)});
+  const first = split(arr)[0];
+  const second = split(arr)[1];
+  return merge(mergeSort(first), mergeSort(second));
 }
